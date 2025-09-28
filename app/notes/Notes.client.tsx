@@ -7,8 +7,8 @@ import SearchBox from '@/components/SearchBox/SearchBox';
 import { useQuery, keepPreviousData } from '@tanstack/react-query';
 import { useState } from 'react';
 import { useDebouncedCallback } from 'use-debounce';
-import Modal from '@/components/Modal/Modal.client';
-import NoteForm from '@/components/NoteForm/NoteForm.client';
+import Modal from '@/components/Modal/Modal';
+import NoteForm from '@/components/NoteForm/NoteForm';
 
 import css from './Notes.module.css';
 
@@ -29,6 +29,7 @@ const NotesClient = () => {
 
   const handleSearch = useDebouncedCallback((val: string) => {
     setSearchQuery(val);
+    setCurrentPage(1);
   }, 300);
 
   // Стан для керування модалкою

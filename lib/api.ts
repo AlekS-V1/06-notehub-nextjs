@@ -39,7 +39,7 @@ export const fetchNoteById = async (id: string) => {
 };
 
 export async function createNote(data: NewFormNote) {
-  const response = await axios.post<notesHttpResponse>('/notes', data, {
+  const response = await axios.post<Note>('/notes', data, {
     headers: {
       accept: 'application/json',
       Authorization: `Bearer ${sui}`,
@@ -49,7 +49,7 @@ export async function createNote(data: NewFormNote) {
 }
 
 export async function deleteNote(noteId: string) {
-  await axios.delete<notesHttpResponse>(`/notes/${noteId}`, {
+  await axios.delete<Note>(`/notes/${noteId}`, {
     headers: {
       accept: 'application/json',
       Authorization: `Bearer ${sui}`,

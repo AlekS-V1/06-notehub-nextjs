@@ -41,13 +41,15 @@ const NotesClient = () => {
     <div className={css.app}>
       <div className={css.toolbar}>
         <SearchBox searchQuery={searchQuery} onSearch={handleSearch} />
-        {data?.notes && data.notes.length > 0 && (
-          <Pagination
-            pageCount={totalPages}
-            currentPage={currentPage}
-            setCurrentPage={setCurrentPage}
-          />
-        )}
+        {typeof totalPages === 'number' &&
+          data?.notes &&
+          data.notes.length > 0 && (
+            <Pagination
+              pageCount={totalPages}
+              currentPage={currentPage}
+              setCurrentPage={setCurrentPage}
+            />
+          )}
         <button className={css.button} onClick={openModal}>
           Create note +
         </button>
